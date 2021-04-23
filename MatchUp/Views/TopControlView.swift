@@ -24,16 +24,18 @@ class TopControlView: UIView {
     private let disposeBag = DisposeBag()
     
     //画面上部で利用するボタンの設定
-    let tinderButton = createTopButton(imageName: "tinder-selected")
-    let goodButton = createTopButton(imageName: "good-selected")
-    let commentButton = createTopButton(imageName: "comment-unselected")
-    let profileButton = createTopButton(imageName: "profile-selected")
+    let tinderButton = createTopButton(selectedImage: "tinder-selected", unselectedImage: "tinder-unselected")
+    let goodButton = createTopButton(selectedImage: "good-selected", unselectedImage: "good-unselected")
+    let commentButton = createTopButton(selectedImage: "comment-selected", unselectedImage: "comment-unselected")
+    let profileButton = createTopButton(selectedImage: "profile-selected", unselectedImage: "profile-unselected")
 
     //メソッドを利用してボタンを効率的に複数作る
     //init外ではstaticをつけないと使えない
-    static private func createTopButton(imageName: String) -> UIButton {
+    static private func createTopButton(selectedImage: String, unselectedImage: String) -> UIButton {
         let button = UIButton(type: .custom)
-        button.setImage(UIImage(named: imageName), for: .normal)
+        //select状態のイメージを登録
+        button.setImage(UIImage(named: selectedImage), for: .selected)
+        button.setImage(UIImage(named: unselectedImage), for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
         return button
     }
@@ -63,6 +65,9 @@ class TopControlView: UIView {
          baseStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 40),
          baseStackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -40),
         ].forEach { $0.isActive = true }
+        
+        //初期選択ボタン
+        tinderButton.isSelected = true
     }
     
     //ボタンの選択・非選択処理
@@ -71,7 +76,7 @@ class TopControlView: UIView {
         tinderButton.rx.tap
             .subscribe { _ in
                 //tapした時の処理
-                print(#function)
+                self.handleSelectedButton(selectedButton: self.tinderButton)
             }
             .disposed(by: disposeBag)
         
@@ -79,7 +84,7 @@ class TopControlView: UIView {
         goodButton.rx.tap
             .subscribe { _ in
                 //tapした時の処理
-                print(#function)
+                self.handleSelectedButton(selectedButton: self.goodButton)
             }
             .disposed(by: disposeBag)
         
@@ -87,7 +92,7 @@ class TopControlView: UIView {
         commentButton.rx.tap
             .subscribe { _ in
                 //tapした時の処理
-                print(#function)
+                self.handleSelectedButton(selectedButton: self.commentButton)
             }
             .disposed(by: disposeBag)
         
@@ -95,10 +100,23 @@ class TopControlView: UIView {
         profileButton.rx.tap
             .subscribe { _ in
                 //tapした時の処理
-                print(#function)
+                self.handleSelectedButton(selectedButton: self.profileButton)
             }
             .disposed(by: disposeBag)
-
+    }
+    
+    private func handleSelectedButton(selectedButton: UIButton) {
+        //全てのボタン入り配列作成　→　選択したボタンが来た時だけselectedImageに変える
+        let buttons = [tinderButton, goodButton, commentButton, profileButton]
+        
+        buttons.forEach { button in
+            if button == selectedButton {
+                //true -> .selectedImageが呼ばれる
+                button.isSelected = true
+            } else {
+                button.isSelected = false
+            }
+        }
     }
     
     required init?(coder: NSCoder) {

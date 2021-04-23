@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "comment-selected.png",
+      "filename" : "comment-unselected.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
