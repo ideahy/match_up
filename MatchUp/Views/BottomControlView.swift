@@ -71,7 +71,8 @@ class BottomButtonView: UIView {
         super.init(frame: frame)
         
         button = UIButton(type: .system)
-        button?.setTitle("tap", for: .normal)
+        button?.setImage(UIImage(named: "nope")?.resize(size: .init(width: width * 0.4, height: width * 0.4)), for: .normal)
+        //タイトルを画像に変更するため削除 → button?.setTitle("tap", for: .normal)
         button?.translatesAutoresizingMaskIntoConstraints = false
         button?.backgroundColor = .white
         button?.layer.cornerRadius = width / 2
