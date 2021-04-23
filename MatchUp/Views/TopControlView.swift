@@ -5,7 +5,17 @@
 //  Created by 山本英明 on 2021/04/23.
 //
 
+//
+//  Rxcocoaを使って選択or非選択の分岐を行う
+//  SwiftPackageManagerを使って導入する
+//
+
+
+
+
 import UIKit
+//  Rxcocoaを使って選択or非選択の分岐を行う
+import RxCocoa
 
 class TopControlView: UIView {
     
