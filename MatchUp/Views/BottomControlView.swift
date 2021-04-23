@@ -13,11 +13,11 @@ import UIKit
 
 //ホームコントローラからも参照可能
 //インスタンス化 & サイズ指定 & 配色
-let view1 = BottomButtonView(frame: .zero, width: 50, imageName: "reload")
-let view2 = BottomButtonView(frame: .zero, width: 60, imageName: "nope")
-let view3 = BottomButtonView(frame: .zero, width: 50, imageName: "superlike")
-let view4 = BottomButtonView(frame: .zero, width: 60, imageName: "like")
-let view5 = BottomButtonView(frame: .zero, width: 50, imageName: "boost")
+let reloadView = BottomButtonView(frame: .zero, width: 50, imageName: "reload")
+let nopeView = BottomButtonView(frame: .zero, width: 60, imageName: "nope")
+let superlikeView = BottomButtonView(frame: .zero, width: 50, imageName: "superlike")
+let likeView = BottomButtonView(frame: .zero, width: 60, imageName: "like")
+let boostView = BottomButtonView(frame: .zero, width: 50, imageName: "boost")
 
 class BottomControlView: UIView {
     
@@ -25,7 +25,7 @@ class BottomControlView: UIView {
         super.init(frame: frame)
         
         //UIStackViewを作成
-        let baseStackView = UIStackView(arrangedSubviews: [view1,view2,view3,view4,view5])
+        let baseStackView = UIStackView(arrangedSubviews: [reloadView,nopeView,superlikeView,likeView,boostView])
         
         //横分割
         baseStackView.axis = .horizontal

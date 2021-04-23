@@ -78,7 +78,7 @@ class ViewController: UIViewController {
 
 
 //
-//  個別のビューを作成
+//  個別ビュー作成方法
 //
 
 import UIKit
@@ -99,7 +99,7 @@ class BottomControlView: UIView {
 
 
 //
-//  ボタンを作成
+//  ボタンの基本構造
 //
 
 import UIKit
@@ -186,3 +186,14 @@ class BottomButtonView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+
+
+
+//
+//  コマンド　名前一括変換
+//
+
+・control + command + E
+
+
