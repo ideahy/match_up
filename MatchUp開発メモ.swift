@@ -211,3 +211,32 @@ class BottomButtonView: UIView {
 ＞検索窓：（使いたいライブラリのURL）
 ＞Version：Exact（バージョン指定）、6.0.0
 ＞検索結果：RxCocoa、RxRelay、RxSwiftにチェック
+
+
+//
+//  RxCocoaを使ってボタンを配置する
+//
+
+import RxCocoa
+import RxSwift
+
+class TopControlView: UIView {
+
+    //ボタンの選択・非選択処理で利用(setupBindings())
+    private let disposeBag = DisposeBag()
+
+    //画面上部で利用するボタンの設定
+    let tinderButton = createTopButton(imageName: "tinder-selected")
+
+    //ボタンの選択・非選択処理
+    private func setupBindings() {
+        //RxSwiftのメソッド
+        tinderButton.rx.tap
+            .subscribe { _ in
+                //tapした時の処理
+                print(#function)
+            }
+            .disposed(by: disposeBag)
+    }
+}
+
