@@ -197,3 +197,17 @@ class BottomButtonView: UIView {
 ・control + command + E
 
 
+
+
+//
+//  SwiftPackageManagerを使ってRxSwiftを導入する
+//
+
+・最左C
+＞アプリ名
+＞Project：アプリ名選択
+＞上部タブ：SwiftPackages
+＞＋ボタン：選択
+＞検索窓：（使いたいライブラリのURL）
+＞Version：Exact（バージョン指定）、6.0.0
+＞検索結果：RxCocoa、RxRelay、RxSwiftにチェック
