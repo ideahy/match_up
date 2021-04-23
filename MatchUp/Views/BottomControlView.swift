@@ -19,19 +19,19 @@ class BottomControlView: UIView {
         backgroundColor = .purple
         
         //インスタンス化 & サイズ指定 & 配色
-        let view1 = BottomButtonView(frame: .zero, width: 50)
+        let view1 = BottomButtonView(frame: .zero, width: 50, imageName: "reload")
         view1.backgroundColor = .orange
         
-        let view2 = BottomButtonView(frame: .zero, width: 60)
+        let view2 = BottomButtonView(frame: .zero, width: 60, imageName: "nope")
         view2.backgroundColor = .orange
 
-        let view3 = BottomButtonView(frame: .zero, width: 50)
+        let view3 = BottomButtonView(frame: .zero, width: 50, imageName: "superlike")
         view3.backgroundColor = .orange
 
-        let view4 = BottomButtonView(frame: .zero, width: 60)
+        let view4 = BottomButtonView(frame: .zero, width: 60, imageName: "like")
         view4.backgroundColor = .orange
 
-        let view5 = BottomButtonView(frame: .zero, width: 50)
+        let view5 = BottomButtonView(frame: .zero, width: 50, imageName: "boost")
         view5.backgroundColor = .orange
         
         //UIStackViewを作成
@@ -67,11 +67,11 @@ class BottomButtonView: UIView {
     var button: UIButton?
     
     //ボタンによってサイズの変更ができるようwidthを追加
-    init(frame: CGRect, width: CGFloat) {
+    init(frame: CGRect, width: CGFloat, imageName: String) {
         super.init(frame: frame)
         
-        button = UIButton(type: .system)
-        button?.setImage(UIImage(named: "nope")?.resize(size: .init(width: width * 0.4, height: width * 0.4)), for: .normal)
+        button = UIButton(type: .custom)
+        button?.setImage(UIImage(named: imageName )?.resize(size: .init(width: width * 0.4, height: width * 0.4)), for: .normal)
         //タイトルを画像に変更するため削除 → button?.setTitle("tap", for: .normal)
         button?.translatesAutoresizingMaskIntoConstraints = false
         button?.backgroundColor = .white
