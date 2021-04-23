@@ -25,7 +25,7 @@ class HomeViewController: UIViewController {
         let stackView = UIStackView(arrangedSubviews: [view1, view2, view3])
         //AutoLayoutに必須
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        //分割
+        //縦分割
         stackView.axis = .vertical
         
         //大元のViewにstackViewを入れる
