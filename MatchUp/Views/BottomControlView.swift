@@ -11,28 +11,18 @@
 
 import UIKit
 
+//ホームコントローラからも参照可能
+//インスタンス化 & サイズ指定 & 配色
+let view1 = BottomButtonView(frame: .zero, width: 50, imageName: "reload")
+let view2 = BottomButtonView(frame: .zero, width: 60, imageName: "nope")
+let view3 = BottomButtonView(frame: .zero, width: 50, imageName: "superlike")
+let view4 = BottomButtonView(frame: .zero, width: 60, imageName: "like")
+let view5 = BottomButtonView(frame: .zero, width: 50, imageName: "boost")
+
 class BottomControlView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        //配色
-        backgroundColor = .purple
-        
-        //インスタンス化 & サイズ指定 & 配色
-        let view1 = BottomButtonView(frame: .zero, width: 50, imageName: "reload")
-        view1.backgroundColor = .orange
-        
-        let view2 = BottomButtonView(frame: .zero, width: 60, imageName: "nope")
-        view2.backgroundColor = .orange
-
-        let view3 = BottomButtonView(frame: .zero, width: 50, imageName: "superlike")
-        view3.backgroundColor = .orange
-
-        let view4 = BottomButtonView(frame: .zero, width: 60, imageName: "like")
-        view4.backgroundColor = .orange
-
-        let view5 = BottomButtonView(frame: .zero, width: 50, imageName: "boost")
-        view5.backgroundColor = .orange
         
         //UIStackViewを作成
         let baseStackView = UIStackView(arrangedSubviews: [view1,view2,view3,view4,view5])
@@ -63,14 +53,15 @@ class BottomControlView: UIView {
 //クラスを参照するとここの全ての設定が入った状態で作成
 class BottomButtonView: UIView {
     
-    //他からも参照できるように変数として持たせておく
-    var button: UIButton?
+    //他からも参照できるように変数として持たせておく & 効果付きクラスを参照
+    var button: BottomButton?
     
     //ボタンによってサイズの変更ができるようwidthを追加
     init(frame: CGRect, width: CGFloat, imageName: String) {
         super.init(frame: frame)
         
-        button = UIButton(type: .custom)
+        //効果付きクラスを参照
+        button = BottomButton(type: .custom)
         button?.setImage(UIImage(named: imageName )?.resize(size: .init(width: width * 0.4, height: width * 0.4)), for: .normal)
         //タイトルを画像に変更するため削除 → button?.setTitle("tap", for: .normal)
         button?.translatesAutoresizingMaskIntoConstraints = false
@@ -86,9 +77,45 @@ class BottomButtonView: UIView {
         
         //ボタンを_軸中心に配置 & 幅と高さを指定
         [button?.centerYAnchor.constraint(equalTo: centerYAnchor),
-        button?.centerXAnchor.constraint(equalTo: centerXAnchor),
-        button?.widthAnchor.constraint(equalToConstant: width),
-        button?.heightAnchor.constraint(equalToConstant: width)].forEach { $0?.isActive = true }
+         button?.centerXAnchor.constraint(equalTo: centerXAnchor),
+         button?.widthAnchor.constraint(equalToConstant: width),
+         button?.heightAnchor.constraint(equalToConstant: width)].forEach { $0?.isActive = true }
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+
+//ボタンタップ時効果の追加
+class BottomButton: UIButton {
+    
+    //isHighlighted = ボタンタップ中
+    override var isHighlighted: Bool {
+        didSet {
+            if isHighlighted {
+                UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: []) {
+                    
+                    //タップ中はボタンを小さくする効果を追加
+                    self.transform = .init(scaleX: 0.8, y: 0.8)
+                    //レイアウトを自動で更新する
+                    self.layoutIfNeeded()
+                }
+            } else {
+                UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: []) {
+                    
+                    //元の大きさに戻る
+                    self.transform = .identity
+                    //レイアウトを自動で更新する
+                    self.layoutIfNeeded()
+                }
+            }
+        }
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
     }
     
     required init?(coder: NSCoder) {
