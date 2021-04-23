@@ -18,20 +18,20 @@ class BottomControlView: UIView {
         //配色
         backgroundColor = .purple
         
-        //インスタンス化 & 配色
-        let view1 = BottomButtonView()
+        //インスタンス化 & サイズ指定 & 配色
+        let view1 = BottomButtonView(frame: .zero, width: 50)
         view1.backgroundColor = .orange
         
-        let view2 = BottomButtonView()
+        let view2 = BottomButtonView(frame: .zero, width: 60)
         view2.backgroundColor = .orange
 
-        let view3 = BottomButtonView()
+        let view3 = BottomButtonView(frame: .zero, width: 50)
         view3.backgroundColor = .orange
 
-        let view4 = BottomButtonView()
+        let view4 = BottomButtonView(frame: .zero, width: 60)
         view4.backgroundColor = .orange
 
-        let view5 = BottomButtonView()
+        let view5 = BottomButtonView(frame: .zero, width: 50)
         view5.backgroundColor = .orange
         
         //UIStackViewを作成
@@ -60,20 +60,21 @@ class BottomControlView: UIView {
 }
 
 
+//クラスを参照するとここの全ての設定が入った状態で作成
 class BottomButtonView: UIView {
     
     //他からも参照できるように変数として持たせておく
     var button: UIButton?
     
-    //クラスを参照するとここの全ての設定が入った状態で作成
-    override init(frame: CGRect) {
+    //ボタンによってサイズの変更ができるようwidthを追加
+    init(frame: CGRect, width: CGFloat) {
         super.init(frame: frame)
         
         button = UIButton(type: .system)
         button?.setTitle("tap", for: .normal)
         button?.translatesAutoresizingMaskIntoConstraints = false
         button?.backgroundColor = .white
-        button?.layer.cornerRadius = 25
+        button?.layer.cornerRadius = width / 2
         button?.layer.shadowOffset = .init(width: 1.5, height: 2)
         button?.layer.shadowColor = UIColor.black.cgColor
         button?.layer.shadowOpacity = 0.3
@@ -85,8 +86,8 @@ class BottomButtonView: UIView {
         //ボタンを_軸中心に配置 & 幅と高さを指定
         [button?.centerYAnchor.constraint(equalTo: centerYAnchor),
         button?.centerXAnchor.constraint(equalTo: centerXAnchor),
-        button?.widthAnchor.constraint(equalToConstant: 50),
-        button?.heightAnchor.constraint(equalToConstant: 50)].forEach { $0?.isActive = true }
+        button?.widthAnchor.constraint(equalToConstant: width),
+        button?.heightAnchor.constraint(equalToConstant: width)].forEach { $0?.isActive = true }
     }
     
     required init?(coder: NSCoder) {
