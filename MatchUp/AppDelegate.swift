@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         //初期画面
-        window?.rootViewController = ViewController()
+        window?.rootViewController = HomeViewController()
         
         return true
     }

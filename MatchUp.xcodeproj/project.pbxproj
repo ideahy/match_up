@@ -9,19 +9,21 @@
 /* Begin PBXBuildFile section */
 		5E74F45326324FC3005783E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74F45226324FC3005783E0 /* AppDelegate.swift */; };
 		5E74F45526324FC3005783E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74F45426324FC3005783E0 /* SceneDelegate.swift */; };
-		5E74F45726324FC3005783E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74F45626324FC3005783E0 /* ViewController.swift */; };
+		5E74F45726324FC3005783E0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74F45626324FC3005783E0 /* HomeViewController.swift */; };
 		5E74F45C26324FC7005783E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E74F45B26324FC7005783E0 /* Assets.xcassets */; };
 		5E74F45F26324FC7005783E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E74F45D26324FC7005783E0 /* LaunchScreen.storyboard */; };
+		5E74F47026326F47005783E0 /* BottomControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74F46F26326F47005783E0 /* BottomControlView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5E74F44F26324FC3005783E0 /* MatchUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E74F45226324FC3005783E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E74F45426324FC3005783E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5E74F45626324FC3005783E0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5E74F45626324FC3005783E0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5E74F45B26324FC7005783E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E74F45E26324FC7005783E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E74F46026324FC7005783E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E74F46F26326F47005783E0 /* BottomControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControlView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +56,31 @@
 		5E74F45126324FC3005783E0 /* MatchUp */ = {
 			isa = PBXGroup;
 			children = (
+				5E74F46E26326F17005783E0 /* Views */,
+				5E74F46C26326ED1005783E0 /* ViewControllers */,
 				5E74F45226324FC3005783E0 /* AppDelegate.swift */,
 				5E74F45426324FC3005783E0 /* SceneDelegate.swift */,
-				5E74F45626324FC3005783E0 /* ViewController.swift */,
 				5E74F45B26324FC7005783E0 /* Assets.xcassets */,
 				5E74F45D26324FC7005783E0 /* LaunchScreen.storyboard */,
 				5E74F46026324FC7005783E0 /* Info.plist */,
 			);
 			path = MatchUp;
+			sourceTree = "<group>";
+		};
+		5E74F46C26326ED1005783E0 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5E74F45626324FC3005783E0 /* HomeViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		5E74F46E26326F17005783E0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5E74F46F26326F47005783E0 /* BottomControlView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,9 +152,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E74F45726324FC3005783E0 /* ViewController.swift in Sources */,
+				5E74F45726324FC3005783E0 /* HomeViewController.swift in Sources */,
 				5E74F45326324FC3005783E0 /* AppDelegate.swift in Sources */,
 				5E74F45526324FC3005783E0 /* SceneDelegate.swift in Sources */,
+				5E74F47026326F47005783E0 /* BottomControlView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
