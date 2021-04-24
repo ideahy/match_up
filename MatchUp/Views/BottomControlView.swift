@@ -75,11 +75,8 @@ class BottomButtonView: UIView {
         //ボタン追加
         addSubview(button!)
         
-        //ボタンを_軸中心に配置 & 幅と高さを指定
-        [button?.centerYAnchor.constraint(equalTo: centerYAnchor),
-         button?.centerXAnchor.constraint(equalTo: centerXAnchor),
-         button?.widthAnchor.constraint(equalToConstant: width),
-         button?.heightAnchor.constraint(equalToConstant: width)].forEach { $0?.isActive = true }
+        //UIView-Extension　→　ボタンを_軸中心に配置 & 幅と高さを指定
+        button?.anchor(centerY: centerYAnchor, centerX: centerXAnchor, width: width, height: width)
     }
     
     required init?(coder: NSCoder) {
