@@ -74,34 +74,39 @@ class TopControlView: UIView {
     private func setupBindings() {
         //RxSwiftのメソッド
         tinderButton.rx.tap
-            .subscribe { _ in
+            //.subscribe { _ in を加工したもの -> メインスレッドで実行される & エラーが起きない
+            //tapの処理がドライバーに変更
+            .asDriver()
+            //循環参照を防ぐ
+            .drive(onNext: { [weak self] in
                 //tapした時の処理
+                guard let self = self else { return }
                 self.handleSelectedButton(selectedButton: self.tinderButton)
-            }
+            })
             .disposed(by: disposeBag)
-        
-        //RxSwiftのメソッド
+
         goodButton.rx.tap
-            .subscribe { _ in
-                //tapした時の処理
+            .asDriver()
+            .drive(onNext: { [weak self] in
+                guard let self = self else { return }
                 self.handleSelectedButton(selectedButton: self.goodButton)
-            }
+            })
             .disposed(by: disposeBag)
-        
-        //RxSwiftのメソッド
+
         commentButton.rx.tap
-            .subscribe { _ in
-                //tapした時の処理
+            .asDriver()
+            .drive(onNext: { [weak self] in
+                guard let self = self else { return }
                 self.handleSelectedButton(selectedButton: self.commentButton)
-            }
+            })
             .disposed(by: disposeBag)
-        
-        //RxSwiftのメソッド
+
         profileButton.rx.tap
-            .subscribe { _ in
-                //tapした時の処理
+            .asDriver()
+            .drive(onNext: { [weak self] in
+                guard let self = self else { return }
                 self.handleSelectedButton(selectedButton: self.profileButton)
-            }
+            })
             .disposed(by: disposeBag)
     }
     
