@@ -15,7 +15,7 @@
 		5E74F45C26324FC7005783E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E74F45B26324FC7005783E0 /* Assets.xcassets */; };
 		5E74F45F26324FC7005783E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E74F45D26324FC7005783E0 /* LaunchScreen.storyboard */; };
 		5E74F47026326F47005783E0 /* BottomControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74F46F26326F47005783E0 /* BottomControlView.swift */; };
-		5EB9B9B6263293B5000E0F41 /* UIImage-Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB9B9B5263293B5000E0F41 /* UIImage-Extention.swift */; };
+		5EB9B9B6263293B5000E0F41 /* UIImage-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB9B9B5263293B5000E0F41 /* UIImage-Extension.swift */; };
 		5EE696462632B0A7000B4FAF /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5EE696452632B0A7000B4FAF /* RxSwift */; };
 		5EE696482632B0A7000B4FAF /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 5EE696472632B0A7000B4FAF /* RxCocoa */; };
 		5EE6964A2632B0A7000B4FAF /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 5EE696492632B0A7000B4FAF /* RxRelay */; };
@@ -32,7 +32,7 @@
 		5E74F45E26324FC7005783E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E74F46026324FC7005783E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E74F46F26326F47005783E0 /* BottomControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControlView.swift; sourceTree = "<group>"; };
-		5EB9B9B5263293B5000E0F41 /* UIImage-Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-Extention.swift"; sourceTree = "<group>"; };
+		5EB9B9B5263293B5000E0F41 /* UIImage-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +100,7 @@
 		5EB9B9B8263293C3000E0F41 /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
-				5EB9B9B5263293B5000E0F41 /* UIImage-Extention.swift */,
+				5EB9B9B5263293B5000E0F41 /* UIImage-Extension.swift */,
 				5E3FB137263405BA009342DA /* UIView-Extension.swift */,
 			);
 			path = Extentions;
@@ -187,7 +187,7 @@
 				5E74F45726324FC3005783E0 /* HomeViewController.swift in Sources */,
 				5E74F45326324FC3005783E0 /* AppDelegate.swift in Sources */,
 				5E3FB138263405BA009342DA /* UIView-Extension.swift in Sources */,
-				5EB9B9B6263293B5000E0F41 /* UIImage-Extention.swift in Sources */,
+				5EB9B9B6263293B5000E0F41 /* UIImage-Extension.swift in Sources */,
 				5E74F45526324FC3005783E0 /* SceneDelegate.swift in Sources */,
 				5E74F47026326F47005783E0 /* BottomControlView.swift in Sources */,
 			);
