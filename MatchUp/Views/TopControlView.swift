@@ -59,12 +59,15 @@ class TopControlView: UIView {
         baseStackView.translatesAutoresizingMaskIntoConstraints = false
         //対象ViewにstackViewを入れる
         addSubview(baseStackView)
+        
+        baseStackView.anchor(top: topAnchor, botton: bottomAnchor, left: leftAnchor, right: rightAnchor, leftPadding: 40, rightPadding: 40)
+        
         //配置(AutoLayout) & constantは両端の余白
-        [baseStackView.topAnchor.constraint(equalTo: topAnchor),
-         baseStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
-         baseStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 40),
-         baseStackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -40),
-        ].forEach { $0.isActive = true }
+//        [baseStackView.topAnchor.constraint(equalTo: topAnchor),
+//         baseStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+//         baseStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 40),
+//         baseStackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -40),
+//        ].forEach { $0.isActive = true }
         
         //初期選択ボタン
         tinderButton.isSelected = true
