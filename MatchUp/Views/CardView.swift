@@ -18,7 +18,7 @@ class CardView: UIView {
         return iv
     }()
     
-    //Cardテキスト情報の設定
+    //ユーザーネームの設定
     let nameLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 40, weight: .heavy)
@@ -27,7 +27,7 @@ class CardView: UIView {
         return label
     }()
     
-    //右側infoボタン
+    //infoボタン
     let infoButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "info.circle.fill")?.resize(size: .init(width: 40, height: 40)), for: .normal)
@@ -36,13 +36,44 @@ class CardView: UIView {
         return button
     }()
         
+    //ユーザー情報１
+    let residenceLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 20, weight: .regular)
+        label.textColor = .white
+        label.text = "日本、大阪"
+        return label
+    }()
+    
+    //ユーザー情報２
+    let hobbyLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 25, weight: .regular)
+        label.textColor = .white
+        label.text = "ランニング"
+        return label
+    }()
+    
+    //ユーザー情報３
+    let introductionLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 25, weight: .regular)
+        label.textColor = .white
+        label.text = "走り回るのが大好きです"
+        return label
+    }()
+    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        //ユーザー情報用 & 右側infoボタン用StackView
-        let baseStackView = UIStackView(arrangedSubviews: [infoButton])
-        baseStackView.axis = .horizontal
+        //ユーザー情報用StackView
+        let infoVerticalStackView = UIStackView(arrangedSubviews: [residenceLabel, hobbyLabel, introductionLabel])
+        infoVerticalStackView.axis = .vertical
         
+        //ユーザー情報用 & 右側infoボタン用StackView
+        let baseStackView = UIStackView(arrangedSubviews: [infoVerticalStackView, infoButton])
+        baseStackView.axis = .horizontal
         
         //表示
         addSubview(cardImageView)
