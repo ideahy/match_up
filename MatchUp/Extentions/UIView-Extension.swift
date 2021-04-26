@@ -12,7 +12,7 @@ extension UIView {
     //配置の設定(上下左右,X軸中心,Y軸中心,縦横幅)から必要なものだけ呼び出せるようにする
     func anchor(
         top: NSLayoutYAxisAnchor? = nil,
-        botton: NSLayoutYAxisAnchor? = nil,
+        bottom: NSLayoutYAxisAnchor? = nil,
         left: NSLayoutXAxisAnchor? = nil,
         right: NSLayoutXAxisAnchor? = nil,
         centerY: NSLayoutYAxisAnchor? = nil,
@@ -31,8 +31,8 @@ extension UIView {
         if let top = top {
             self.topAnchor.constraint(equalTo: top, constant: topPadding).isActive = true
         }
-        if let botton = botton {
-            self.bottomAnchor.constraint(equalTo: botton, constant: -bottomPadding).isActive = true
+        if let bottom = bottom {
+            self.bottomAnchor.constraint(equalTo: bottom, constant: -bottomPadding).isActive = true
         }
         if let left = left {
             self.leftAnchor.constraint(equalTo: left, constant: leftPadding).isActive = true
