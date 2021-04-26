@@ -79,25 +79,29 @@ class CardView: UIView {
         let translation = gesture.translation(in: self)
         
         if gesture.state == .changed {
-            
             self.handlePanChange(translation: translation)
             
         } else if gesture.state == .ended {
-            UIView.animate(withDuration: 0.3) {
-                self.transform = .identity
-                //animationを認識
-                self.layoutIfNeeded()
-            }
+            self.handlePanEnded()
         }
     }
     
-    //スワイプの詳細設定
+    //スワイプ動作時の設定
     private func handlePanChange(translation: CGPoint) {
         let degree:CGFloat = translation.x / 20
         let angle = degree * .pi / 100 //pi=円周率
         
         let rotateTranslation = CGAffineTransform(rotationAngle: angle)
         self.transform = rotateTranslation.translatedBy(x: translation.x, y: translation.y)
+    }
+    
+    //スワイプ終了時の設定
+    private func handlePanEnded() {
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.7, options: []) {
+            self.transform = .identity
+            //animationを認識
+            self.layoutIfNeeded()
+        }
     }
     
     
