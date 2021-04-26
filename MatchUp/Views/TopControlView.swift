@@ -60,7 +60,7 @@ class TopControlView: UIView {
         //対象ViewにstackViewを入れる
         addSubview(baseStackView)
         
-        baseStackView.anchor(top: topAnchor, botton: bottomAnchor, left: leftAnchor, right: rightAnchor, leftPadding: 40, rightPadding: 40)
+        baseStackView.anchor(top: topAnchor, bottom: bottomAnchor, left: leftAnchor, right: rightAnchor, leftPadding: 40, rightPadding: 40)
         
         //配置(AutoLayout) & constantは両端の余白
 //        [baseStackView.topAnchor.constraint(equalTo: topAnchor),
