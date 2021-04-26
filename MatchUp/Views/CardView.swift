@@ -67,6 +67,30 @@ class CardView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        setupLayout()
+        
+        //スワイプ機能
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panCardView))
+        self.addGestureRecognizer(panGesture)
+    }
+    
+    @objc private func panCardView(gesture: UIPanGestureRecognizer) {
+        //動かしている時の動きと手を離した時の動き
+        let translation = gesture.translation(in: self)
+        
+        if gesture.state == .changed {
+            self.transform = CGAffineTransform(translationX: translation.x, y: translation.y)
+        } else if gesture.state == .ended {
+            UIView.animate(withDuration: 0.3) {
+                self.transform = .identity
+                //animationを認識
+                self.layoutIfNeeded()
+            }
+        }
+    }
+    
+    
+    private func setupLayout() {
         //ユーザー情報用StackView
         let infoVerticalStackView = UIStackView(arrangedSubviews: [residenceLabel, hobbyLabel, introductionLabel])
         infoVerticalStackView.axis = .vertical
@@ -82,9 +106,11 @@ class CardView: UIView {
         
         //配置
         cardImageView.anchor(top: topAnchor, bottom: bottomAnchor, left: leftAnchor, right: rightAnchor, leftPadding: 10, rightPadding: 10)
+        infoButton.anchor(width: 40)
         baseStackView.anchor(bottom: cardImageView.bottomAnchor, left: cardImageView.leftAnchor, right: cardImageView.rightAnchor, bottomPadding: 20, leftPadding: 20, rightPadding: 20)
-        nameLabel.anchor(bottom: baseStackView.topAnchor, left: cardImageView.leftAnchor, bottomPadding: 40, leftPadding: 20)
+        nameLabel.anchor(bottom: baseStackView.topAnchor, left: cardImageView.leftAnchor, bottomPadding: 10, leftPadding: 20)
     }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
