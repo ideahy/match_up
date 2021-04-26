@@ -15,13 +15,12 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .white
         
         //配色
-        let view1 = TopControlView()
-        let view2 = UIView()
-        view2.backgroundColor = .blue
+        let topControlView = TopControlView()
+        let cardView = CardView()    //cardView
         let bottomControlView = BottomControlView()
         
         //画面構成が複数　→　UIStackView
-        let stackView = UIStackView(arrangedSubviews: [view1, view2, bottomControlView])
+        let stackView = UIStackView(arrangedSubviews: [topControlView, cardView, bottomControlView])
         //AutoLayoutに必須
         stackView.translatesAutoresizingMaskIntoConstraints = false
         //縦分割
@@ -32,7 +31,7 @@ class HomeViewController: UIViewController {
         
         //配置(AutoLayout)
         [
-            view1.heightAnchor.constraint(equalToConstant: 100),
+            topControlView.heightAnchor.constraint(equalToConstant: 100),
             bottomControlView.heightAnchor.constraint(equalToConstant: 120),
             
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
