@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E11CA13263649BC00C87C63 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E11CA12263649BC00C87C63 /* CardView.swift */; };
 		5E35A55E2632A01B00E23B81 /* TopControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E35A55D2632A01B00E23B81 /* TopControlView.swift */; };
 		5E3FB138263405BA009342DA /* UIView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3FB137263405BA009342DA /* UIView-Extension.swift */; };
 		5E74F45326324FC3005783E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74F45226324FC3005783E0 /* AppDelegate.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5E11CA12263649BC00C87C63 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		5E35A55D2632A01B00E23B81 /* TopControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopControlView.swift; sourceTree = "<group>"; };
 		5E3FB137263405BA009342DA /* UIView-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView-Extension.swift"; sourceTree = "<group>"; };
 		5E74F44F26324FC3005783E0 /* MatchUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +95,7 @@
 			children = (
 				5E74F46F26326F47005783E0 /* BottomControlView.swift */,
 				5E35A55D2632A01B00E23B81 /* TopControlView.swift */,
+				5E11CA12263649BC00C87C63 /* CardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				5E3FB138263405BA009342DA /* UIView-Extension.swift in Sources */,
 				5EB9B9B6263293B5000E0F41 /* UIImage-Extension.swift in Sources */,
 				5E74F45526324FC3005783E0 /* SceneDelegate.swift in Sources */,
+				5E11CA13263649BC00C87C63 /* CardView.swift in Sources */,
 				5E74F47026326F47005783E0 /* BottomControlView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
